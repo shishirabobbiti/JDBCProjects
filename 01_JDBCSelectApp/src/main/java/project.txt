@@ -1,0 +1,5 @@
+1. Get all employee
+2. Get employee by ID
+3. Update employee all details by ID
+4. Delete a record by id
+5. add a record
