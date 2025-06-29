@@ -18,11 +18,13 @@ public class EditRecord {
 		String url="jdbc:mysql://localhost:3306/jdbcsessions";
 		String username="root";
 		String password="Shishira13";
-		String editQuery="UPDATE student SET saddress ='"+address+"' WHERE sname='"+name+"'";
+		String editQuery="UPDATE student SET saddress =? WHERE sname=?";
 		String selectQuery="select * from student";
 		Class.forName("com.mysql.cj.jdbc.Driver");
 		Connection connection=DriverManager.getConnection(url,username,password);
 		PreparedStatement statement=connection.prepareStatement(editQuery);
+		statement.setString(1, address);
+		statement.setString(2, name);
 		int rowsEffected=statement.executeUpdate();
 		System.out.println("No of rows effected::"+rowsEffected);
 		PreparedStatement selectStatement=connection.prepareStatement(selectQuery);
